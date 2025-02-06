@@ -64,7 +64,7 @@ const Sidebar = () => {
                 : "hover:bg-teal-700"
             }`}
           >
-            🛒 Payment History
+            🛒 Add Product
           </Link>
           <Link
             to="/earnings"
