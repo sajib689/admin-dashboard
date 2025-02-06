@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,8 +26,8 @@ const Sidebar = () => {
           </button>
         </div>
         <nav className="flex flex-col space-y-4">
-          <button
-            onClick={() => setActiveTab("home")}
+          <Link
+          to="/"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               activeTab === "home"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -34,9 +35,9 @@ const Sidebar = () => {
             }`}
           >
             🏠 Home
-          </button>
-          <button
-            onClick={() => setActiveTab("profile")}
+          </Link>
+          <Link
+            to="/users"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               activeTab === "profile"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -44,9 +45,9 @@ const Sidebar = () => {
             }`}
           >
             👤 Users
-          </button>
-          <button
-            onClick={() => setActiveTab("products")}
+          </Link>
+          <Link
+          to="/products"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               activeTab === "products"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -54,8 +55,8 @@ const Sidebar = () => {
             }`}
           >
             🛒 Products
-          </button>
-         
+          </Link>
+
           <button
             onClick={() => setActiveTab("settings")}
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
@@ -114,7 +115,8 @@ const Sidebar = () => {
         <div className="mt-6">
           <h2 className="text-2xl font-semibold">Content Goes Here</h2>
           <p className="text-gray-700 mt-4">
-            This is where your content will be displayed depending on the active tab.
+            This is where your content will be displayed depending on the active
+            tab.
           </p>
         </div>
       </main>
