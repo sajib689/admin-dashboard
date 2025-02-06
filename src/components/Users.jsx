@@ -1,26 +1,45 @@
 import { useEffect, useState } from "react";
 
-
 const Users = () => {
-    const [users, setUsers] = useState([]);
-    useEffect( () => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => response.json())
-        .then(data => setUsers(data))
-    },[])
-    return (
-        <div>
-            <h1 className="text-2xl font-bold text-center">Users</h1>
-            <ul>
-                {users.map(user => (
-                    <li key={user.id} className="flex items-center justify-between p-2 border-b">
-                        <span>{user.name}</span>
-                        <span>{user.email}</span>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((data) => {
+        setUsers(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <h1 className="text-center text-xl">Loading...</h1>;
+
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold text-center mb-6">Users</h1>
+      <div className="overflow-x-auto bg-white shadow-md rounded-lg">
+        <table className="min-w-full table-auto">
+          <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+            <tr>
+              <th className="px-6 py-3 text-left font-medium">Name</th>
+              <th className="px-6 py-3 text-left font-medium">Email</th>
+              <th className="px-6 py-3 text-left font-medium">City</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user) => (
+              <tr key={user.id} className="border-t hover:bg-gray-100">
+                <td className="px-6 py-4">{user.name}</td>
+                <td className="px-6 py-4">{user.email}</td>
+                <td className="px-6 py-4">{user.address.city}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default Users;
