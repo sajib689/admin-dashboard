@@ -6,10 +6,10 @@ const Sidebar = () => {
   const [activeTab, setActiveTab] = useState("home");
 
   return (
-    <div className="flex h-full bg-gradient-to-r from-blue-600 to-teal-500">
+    <div className="flex h-screen">
       {/* Sidebar */}
       <aside
-        className={`w-64 bg-gradient-to-b from-gray-800 to-gray-900 text-white flex flex-col p-4 absolute md:relative md:flex transition-transform duration-300  ${
+        className={`w-64 bg-gradient-to-b from-gray-800 to-gray-900 text-white flex flex-col p-4 fixed top-0 left-0 h-full z-20 transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         }`}
       >
@@ -27,7 +27,7 @@ const Sidebar = () => {
         </div>
         <nav className="flex flex-col space-y-4">
           <Link
-          to="/"
+            to="/"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               activeTab === "home"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -47,7 +47,7 @@ const Sidebar = () => {
             👤 Users
           </Link>
           <Link
-          to="/products"
+            to="/products"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               activeTab === "products"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -56,7 +56,26 @@ const Sidebar = () => {
           >
             🛒 Products
           </Link>
-
+          <Link
+            to="/payment-history"
+            className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
+              activeTab === "payment-history"
+                ? "bg-gradient-to-r from-teal-500 to-blue-600"
+                : "hover:bg-teal-700"
+            }`}
+          >
+            🛒 Payment History
+          </Link>
+          <Link
+            to="/earnings"
+            className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
+              activeTab === "earnings"
+                ? "bg-gradient-to-r from-teal-500 to-blue-600"
+                : "hover:bg-teal-700"
+            }`}
+          >
+            🛒 Earnings
+          </Link>
           <button
             onClick={() => setActiveTab("settings")}
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
@@ -99,7 +118,7 @@ const Sidebar = () => {
       )}
 
       {/* Main Content */}
-      <main className="flex-1 p-6">
+      <main className="flex-1 ml-64 p-6 overflow-y-auto">
         <header className="flex items-center justify-between p-4 bg-white shadow-md">
           <button
             className="md:hidden text-2xl"
@@ -113,7 +132,7 @@ const Sidebar = () => {
         </header>
 
         <div className="mt-6">
-          <Outlet/>
+          <Outlet />
         </div>
       </main>
     </div>
