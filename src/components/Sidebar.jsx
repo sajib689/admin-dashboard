@@ -6,7 +6,7 @@ const Sidebar = () => {
   const [activeTab, setActiveTab] = useState("home");
 
   return (
-    <div className="flex h-screen bg-gradient-to-r from-blue-600 to-teal-500">
+    <div className="flex h-full bg-gradient-to-r from-blue-600 to-teal-500">
       {/* Sidebar */}
       <aside
         className={`w-64 bg-gradient-to-b from-gray-800 to-gray-900 text-white flex flex-col p-4 absolute md:relative md:flex transition-transform duration-300  ${
