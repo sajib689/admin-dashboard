@@ -1,14 +1,15 @@
 import { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("home");
 
   return (
-    <div className="flex h-screen bg-gradient-to-r from-blue-600 to-teal-500">
+    <div className="flex h-screen">
       {/* Sidebar */}
       <aside
-        className={`w-64 bg-gradient-to-b from-gray-800 to-gray-900 text-white flex flex-col p-4 absolute md:relative md:flex transition-transform duration-300  ${
+        className={`w-64 bg-gradient-to-b from-gray-800 to-gray-900 text-white flex flex-col p-4 fixed top-0 left-0 h-full z-20 transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         }`}
       >
@@ -25,8 +26,8 @@ const Sidebar = () => {
           </button>
         </div>
         <nav className="flex flex-col space-y-4">
-          <button
-            onClick={() => setActiveTab("home")}
+          <Link
+            to="/"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               activeTab === "home"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -34,9 +35,9 @@ const Sidebar = () => {
             }`}
           >
             🏠 Home
-          </button>
-          <button
-            onClick={() => setActiveTab("profile")}
+          </Link>
+          <Link
+            to="/users"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               activeTab === "profile"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -44,9 +45,9 @@ const Sidebar = () => {
             }`}
           >
             👤 Users
-          </button>
-          <button
-            onClick={() => setActiveTab("products")}
+          </Link>
+          <Link
+            to="/products"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               activeTab === "products"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -54,8 +55,27 @@ const Sidebar = () => {
             }`}
           >
             🛒 Products
-          </button>
-         
+          </Link>
+          <Link
+            to="/payment-history"
+            className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
+              activeTab === "payment-history"
+                ? "bg-gradient-to-r from-teal-500 to-blue-600"
+                : "hover:bg-teal-700"
+            }`}
+          >
+            🛒 Payment History
+          </Link>
+          <Link
+            to="/earnings"
+            className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
+              activeTab === "earnings"
+                ? "bg-gradient-to-r from-teal-500 to-blue-600"
+                : "hover:bg-teal-700"
+            }`}
+          >
+            🛒 Earnings
+          </Link>
           <button
             onClick={() => setActiveTab("settings")}
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
@@ -98,7 +118,7 @@ const Sidebar = () => {
       )}
 
       {/* Main Content */}
-      <main className="flex-1 p-6">
+      <main className="flex-1 ml-64 p-6 overflow-y-auto">
         <header className="flex items-center justify-between p-4 bg-white shadow-md">
           <button
             className="md:hidden text-2xl"
@@ -112,10 +132,7 @@ const Sidebar = () => {
         </header>
 
         <div className="mt-6">
-          <h2 className="text-2xl font-semibold">Content Goes Here</h2>
-          <p className="text-gray-700 mt-4">
-            This is where your content will be displayed depending on the active tab.
-          </p>
+          <Outlet />
         </div>
       </main>
     </div>
