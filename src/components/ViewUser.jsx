@@ -39,8 +39,10 @@ const ViewUser = () => {
                             <input type="text" value={user.phone} readOnly className="w-full mt-1 px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-600">Website</label>
-                            <a href={`https://${user.website}`} target="_blank" rel="noopener noreferrer" className="w-full mt-1 px-4 py-2 bg-teal-100 border border-gray-300 rounded-lg text-teal-600 hover:bg-teal-200">Visit Website</a>
+                        <label className="block text-sm font-medium text-gray-600">Website Address</label>
+                            <input type="text" value={user.website} readOnly className="w-full mt-1 px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" />
+                        
+                            
                         </div>
                     </div>
                 </form>
