@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -113,11 +113,7 @@ const Sidebar = () => {
         </header>
 
         <div className="mt-6">
-          <h2 className="text-2xl font-semibold">Content Goes Here</h2>
-          <p className="text-gray-700 mt-4">
-            This is where your content will be displayed depending on the active
-            tab.
-          </p>
+          <Outlet/>
         </div>
       </main>
     </div>
