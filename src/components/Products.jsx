@@ -39,7 +39,7 @@ const Products = () => {
           .catch((error) => console.error("Error deleting product:", error));
         Swal.fire({
           title: "Deleted!",
-          text: "Your file has been deleted.",
+          text: "Your product has been deleted.",
           icon: "success"
         });
       }
