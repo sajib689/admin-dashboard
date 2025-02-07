@@ -26,20 +26,20 @@ const Products = () => {
             <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
               <tr>
                 <th className="px-6 py-3 text-left font-medium">Name</th>
-                <th className="px-6 py-3 text-left font-medium">Email</th>
-                <th className="px-6 py-3 text-left font-medium">City</th>
+                <th className="px-6 py-3 text-left font-medium">Color</th>
+                <th className="px-6 py-3 text-left font-medium">capacity</th>
                 <th className="px-6 py-3 text-left font-medium">Action</th>
               </tr>
             </thead>
             <tbody>
-              {products?.map((user) => (
-                <tr key={user.id} className="border-t hover:bg-gray-100">
-                  <td className="px-6 py-4">{user.name}</td>
-                  <td className="px-6 py-4">{user.email}</td>
-                  <td className="px-6 py-4">{user.address.city}</td>
+              {products?.map((product) => (
+                <tr key={product.id} className="border-t hover:bg-gray-100">
+                  <td className="px-6 py-4">{product.name}</td>
+                  <td className="px-6 py-4">{product.data.color}</td>
+                  <td className="px-6 py-4">{product.data.capacity}</td>
                   <td className="px-6 py-4">
                     <Link
-                      to={`/users/${user?.id}`}
+                      to={`/products/${product?.id}`}
                       className="bg-gradient-to-r from-green-400 to-teal-500 text-white px-3 py-2 md:px-4 md:py-2 rounded text-sm md:text-base w-full md:w-auto text-center block md:inline-block"
                     >
                       View Details
