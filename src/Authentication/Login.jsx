@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { Link, useNavigation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
    const {login} = useContext(AuthContext)
-   const navigation = useNavigation()
+   const navigate = useNavigate()
       const handleLogin = e => {
           e.preventDefault();
           const form = e.target
@@ -21,7 +21,7 @@ const Login = () => {
                       showConfirmButton: false,
                       timer: 1500
                     });
-                    navigation('/adminhome')
+                    navigate('/adminhome')
               }
           })
           .catch(err => {
