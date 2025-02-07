@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("home");
+  const [activeTab, setActiveTab] = useState("");
 
   return (
     <div className="flex h-screen">
