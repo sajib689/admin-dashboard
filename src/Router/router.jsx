@@ -3,6 +3,7 @@ import App from "../App";
 import Users from "../components/Users";
 import Products from "../components/Products";
 import ViewUser from "../components/ViewUser";
+import ViewProduct from "../components/ViewProduct";
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
             path: '/users/:id',
             element: <ViewUser/>,
             loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`)
+           },
+           {
+            path: '/products/:id',
+            element: <ViewProduct/>,
+            loader: ({params}) => fetch(`https://api.restful-api.dev/objects/${params.id}`)
            }
         ]
     }
