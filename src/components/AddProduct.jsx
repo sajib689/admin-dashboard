@@ -49,9 +49,10 @@ const AddProduct = () => {
       body: JSON.stringify(productData),
     })
       .then((res) => {
-        if(res.data) {
+        console.log(res)
+        if(res.status === 200) {
             Swal.fire({
-                position: "top-end",
+                position: "top-center",
                 icon: "success",
                 title: "Your product has been saved",
                 showConfirmButton: false,
