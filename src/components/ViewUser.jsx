@@ -5,7 +5,7 @@ const ViewUser = () => {
 
     return (
         <div className="max-w-5xl mx-auto p-8 bg-white shadow-lg rounded-xl mt-8">
-            <h2 className="text-3xl font-semibold text-gray-800 mb-6">User Details</h2>
+            
 
             {/* User Information Form */}
             <div className="mb-8">
