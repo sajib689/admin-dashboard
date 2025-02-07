@@ -33,10 +33,10 @@ const Products = () => {
             </thead>
             <tbody>
               {products?.map((product) => (
-                <tr key={product.id} className="border-t hover:bg-gray-100">
-                  <td className="px-6 py-4">{product.name}</td>
-                  <td className="px-6 py-4">{product.data.color}</td>
-                  <td className="px-6 py-4">{product.data.capacity}</td>
+                <tr key={product?.id} className="border-t hover:bg-gray-100">
+                  <td className="px-6 py-4">{product?.name}</td>
+                  <td className="px-6 py-4">{product?.data?.color}</td>
+                  <td className="px-6 py-4">{product?.data.capacity}</td>
                   <td className="px-6 py-4">
                     <Link
                       to={`/products/${product?.id}`}
