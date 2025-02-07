@@ -6,6 +6,8 @@ import ViewUser from "../components/ViewUser";
 import ViewProduct from "../components/ViewProduct";
 import AddProduct from "../components/AddProduct";
 import AdminHome from "../components/AdminHone";
+import Login from "../Authentication/Login";
+import Register from "../Authentication/Register";
 
 
 const router = createBrowserRouter([
@@ -13,8 +15,9 @@ const router = createBrowserRouter([
         path: '/',
         element: <App/>,
         children: [
-          {
-            path: '/',
+         
+           {
+            path: '/adminhome',
             element: <AdminHome/>
           },
            {
@@ -38,9 +41,18 @@ const router = createBrowserRouter([
            {
             path: 'addproduct',
             element: <AddProduct/>
-           }
+           },
+           
         ]
-    }
+    },
+    {
+      path: '/login',
+      element: <Login/>
+     },
+     {
+      path: '/register',
+      element: <Register/>
+     },
 ])
 
 export default router

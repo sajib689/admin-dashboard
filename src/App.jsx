@@ -1,11 +1,12 @@
 
-import Sidebar from "./components/Sidebar";
-
+import { Outlet } from 'react-router-dom';
+import Login from './Authentication/Login';
 
 const App = () => {
   return (
     <div>
-      <Sidebar/>
+      <Login/>
+      <Outlet/>
     </div>
   );
 };
