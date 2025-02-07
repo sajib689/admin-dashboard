@@ -20,7 +20,7 @@ const Users = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold text-center mb-6">Total Users: {users?.length}</h1>
+      <h1 className="text-2xl font-bold text-left mb-6">Total Users: {users?.length}</h1>
       <div className="overflow-x-auto bg-white shadow-md rounded-lg">
         <table className="min-w-full table-auto">
           <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
