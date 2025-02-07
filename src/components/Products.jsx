@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../Util/Loader";
+import Swal from "sweetalert2";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -17,15 +18,33 @@ const Products = () => {
   }, []);
 
   const handleDeleteProduct = (id) => {
-    fetch(`https://api.restful-api.dev/objects/${id}`, {
-      method: "DELETE",
-    })
-      .then(() => {
-        setProducts((prevProducts) =>
-          prevProducts.filter((product) => product.id !== id)
-        );
-      })
-      .catch((error) => console.error("Error deleting product:", error));
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://api.restful-api.dev/objects/${id}`, {
+          method: "DELETE",
+        })
+          .then(() => {
+            setProducts((prevProducts) =>
+              prevProducts.filter((product) => product.id !== id)
+            );
+          })
+          .catch((error) => console.error("Error deleting product:", error));
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+      }
+    });
+    
   }
   if (loading) return <Loader/>
   return (
