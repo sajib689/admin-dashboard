@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loader from "../Util/Loader";
+import Swal from "sweetalert2";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -14,7 +16,37 @@ const Products = () => {
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
-  if (loading) return <h1 className="text-center text-xl">Loading...</h1>;
+
+  const handleDeleteProduct = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://api.restful-api.dev/objects/${id}`, {
+          method: "DELETE",
+        })
+          .then(() => {
+            setProducts((prevProducts) =>
+              prevProducts.filter((product) => product.id !== id)
+            );
+          })
+          .catch((error) => console.error("Error deleting product:", error));
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your product has been deleted.",
+          icon: "success"
+        });
+      }
+    });
+    
+  }
+  if (loading) return <Loader/>
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold text-left mb-6">
@@ -47,7 +79,7 @@ const Products = () => {
                   >
                     View Details
                   </Link>
-                  <Link className=" ms-2 bg-gradient-to-r from-red-500 to-red-700 text-white px-3 py-2 md:px-4 md:py-2 rounded text-sm md:text-base w-full md:w-auto text-center block md:inline-block hover:from-red-600 hover:to-red-800">
+                  <Link onClick={() => handleDeleteProduct(product?.id)} className=" ms-2 bg-gradient-to-r from-red-500 to-red-700 text-white px-3 py-2 md:px-4 md:py-2 rounded text-sm md:text-base w-full md:w-auto text-center block md:inline-block hover:from-red-600 hover:to-red-800">
                     Delete
                   </Link>
                 </td>

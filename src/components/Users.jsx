@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loader from "../Util/Loader";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -14,7 +15,7 @@ const Users = () => {
       });
   }, []);
 
-  if (loading) return <h1 className="text-center text-xl">Loading...</h1>;
+  if (loading) return <Loader/>
 
   return (
     <div className="container mx-auto p-4">
@@ -36,7 +37,7 @@ const Users = () => {
               <tr key={user?.id} className="border-t hover:bg-gray-100">
                 <td className="px-6 py-4">{user?.name}</td>
                 <td className="px-6 py-4">{user?.email}</td>
-                <td className="px-6 py-4">{user?.address.city}</td>
+                <td className="px-6 py-4">{user?.address?.city}</td>
                 <td className="px-6 py-4">
                   <Link
                     to={`/users/${user?.id}`}

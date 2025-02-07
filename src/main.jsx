@@ -5,6 +5,6 @@ import router from './Router/router.jsx'
 
 createRoot(document.getElementById('root')).render(
   <RouterProvider router={router}>
-   
+  
   </RouterProvider>,
 )
