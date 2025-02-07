@@ -10,6 +10,7 @@ import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import Main from "../Main/Main";
 import AdminHome from './../components/AdminHone';
+import PrivateRoute from "../Private/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -17,43 +18,43 @@ const router = createBrowserRouter([
     element: <Main/>,
     children: [
       {
-        path: 'auth/login', // Changed to '/auth/login'
+        path: 'auth/login', 
         element: <Login/>
       },
       {
-        path: 'auth/register', // Changed to '/auth/register'
+        path: 'auth/register',
         element: <Register/>
       }
     ]
   },
   {
-    path: '/admin', // All admin routes will now be under '/admin'
-    element: <App />,
+    path: '/admin', 
+    element: <PrivateRoute><App /></PrivateRoute>,
     children: [
       {
-        path: 'adminhome', // Access admin home at '/admin/adminhome'
+        path: 'adminhome', 
         element: <AdminHome/>
       },
       {
-        path: 'users', // Access users at '/admin/users'
+        path: 'users', 
         element: <Users/>
       },
       {
-        path: 'products', // Access products at '/admin/products'
+        path: 'products', 
         element: <Products/>
       },
       {
-        path: 'users/:id', // View a specific user at '/admin/users/:id'
+        path: 'users/:id', 
         element: <ViewUser/>,
         loader: ({ params }) => fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`)
       },
       {
-        path: 'products/:id', // View a specific product at '/admin/products/:id'
+        path: 'products/:id', 
         element: <ViewProduct/>,
         loader: ({ params }) => fetch(`https://api.restful-api.dev/objects/${params.id}`)
       },
       {
-        path: 'addproduct', // Add a new product at '/admin/addproduct'
+        path: 'addproduct',
         element: <AddProduct/>
       },
     ]
