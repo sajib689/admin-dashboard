@@ -57,9 +57,9 @@ const Sidebar = () => {
             🛒 Products
           </Link>
           <Link
-            to="/payment-history"
+            to="/addproduct"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
-              location.pathname === "/payment-history"
+              location.pathname === "/addproduct"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
                 : "hover:bg-teal-700"
             }`}
@@ -67,9 +67,9 @@ const Sidebar = () => {
             🛒 Add Product
           </Link>
           <Link
-            to="/addproduct"
+            to="/earnings"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
-              location.pathname === "/addproduct"
+              location.pathname === "/earnings"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
                 : "hover:bg-teal-700"
             }`}
