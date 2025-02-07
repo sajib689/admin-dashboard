@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../Util/Loader";
+import { Eye } from "lucide-react";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -111,7 +112,7 @@ const Users = () => {
                     to={`/users/${user?.id}`}
                     className="bg-gradient-to-r from-green-400 to-teal-500 text-white px-3 py-2 md:px-4 md:py-2 rounded text-sm md:text-base w-full md:w-auto text-center block md:inline-block"
                   >
-                    View Details
+                    <Eye/>
                   </Link>
                 </td>
               </tr>
