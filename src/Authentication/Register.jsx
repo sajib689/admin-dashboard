@@ -1,26 +1,27 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
     const {register} = useContext(AuthContext)
+    const navigation = useNavigation()
     const handleRegistered = e => {
         e.preventDefault();
         const form = e.target
-        const name = form.name.value
         const email = form.email.value
         const password = form.password.value
         register(email, password)
         .then(res => {
             if(res){
                 Swal.fire({
-                    position: "top-end",
+                    position: "top-center",
                     icon: "success",
-                    title: "Your work has been saved",
+                    title: "Your Registration Success!",
                     showConfirmButton: false,
                     timer: 1500
                   });
+                  navigation('/adminhome')
             }
         })
         .catch(err => {
@@ -83,9 +84,9 @@ const Register = () => {
             </div>
 
             {/* Login Button */}
-            <Link className="bg-gradient-to-r from-green-400 to-teal-500 text-white px-3 py-2 md:px-4 md:py-2 rounded text-sm md:text-base w-full text-center block mt-5">
+            <button className="bg-gradient-to-r from-green-400 to-teal-500 text-white px-3 py-2 md:px-4 md:py-2 rounded text-sm md:text-base w-full text-center block mt-5">
               Register
-            </Link>
+            </button>
 
             {/* Forgot Password & Register Links */}
             <div className="text-center mt-4 text-sm text-gray-500">
