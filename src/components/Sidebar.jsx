@@ -27,9 +27,9 @@ const Sidebar = () => {
         </div>
         <nav className="flex flex-col space-y-4">
           <Link
-            to="/adminhome"
+            to="/"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
-              location.pathname === "/adminhome"
+              location.pathname === "/"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
                 : "hover:bg-teal-700"
             }`}

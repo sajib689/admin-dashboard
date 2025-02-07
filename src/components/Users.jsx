@@ -69,7 +69,7 @@ const Users = () => {
         {/* Filters */}
         <div className="flex justify-center space-x-4 w-full max-w-3xl mx-auto">
           {/* Name Filter */}
-          <div className="flex flex-col w-1/3">
+          <div className="flex flex-col md:w-1/3 lg:w-1/3">
             <label className="mb-2 text-lg font-medium text-gray-700">
               Filter by Name
             </label>
