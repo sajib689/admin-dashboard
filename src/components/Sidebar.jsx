@@ -1,10 +1,20 @@
-import { useState } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
+  const {logOut} = useContext(AuthContext)
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    logOut().then(() => {
+      navigate('/auth/login');
+    }).catch((error) => {
+      console.error("Logout failed:", error);
+    });
+  }
+  
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
@@ -27,7 +37,7 @@ const Sidebar = () => {
         </div>
         <nav className="flex flex-col space-y-4">
           <Link
-            to="/"
+            to="/admin/adminhome"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               location.pathname === "/"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -37,7 +47,7 @@ const Sidebar = () => {
             🏠 Home
           </Link>
           <Link
-            to="/users"
+            to="/admin/users"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               location.pathname === "/users"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -47,7 +57,7 @@ const Sidebar = () => {
             👤 Users
           </Link>
           <Link
-            to="/products"
+            to="/admin/products"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               location.pathname === "/products"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -57,7 +67,7 @@ const Sidebar = () => {
             🛒 Products
           </Link>
           <Link
-            to="/addproduct"
+            to="/admin/addproduct"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               location.pathname === "/addproduct"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -67,7 +77,7 @@ const Sidebar = () => {
             🛒 Add Product
           </Link>
           <Link
-            to="/earnings"
+            to="/admin/earnings"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               location.pathname === "/earnings"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -77,7 +87,7 @@ const Sidebar = () => {
             💰 Earnings
           </Link>
           <Link
-            to="/settings"
+            to="/admin/settings"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               location.pathname === "/settings"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -87,7 +97,7 @@ const Sidebar = () => {
             ⚙️ Settings
           </Link>
           <Link
-            to="/messages"
+            to="/admin/messages"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               location.pathname === "/messages"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -97,11 +107,9 @@ const Sidebar = () => {
             ✉️ Messages
           </Link>
           <Link
-            to="/logout"
+            onClick={handleLogout}
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
-              location.pathname === "/logout"
-                ? "bg-gradient-to-r from-teal-500 to-blue-600"
-                : "hover:bg-teal-700"
+            "hover:bg-teal-700"
             }`}
           >
             🚪 Logout
