@@ -21,7 +21,7 @@ const Register = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
-                  navigate('/adminhome')
+                  navigate('/admin/adminhome')
             }
         })
         .catch(err => {
