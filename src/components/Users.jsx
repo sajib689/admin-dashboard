@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loader from "../Util/Loader";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
