@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 import Loader from "../Util/Loader";
+import { Link } from "react-router-dom";
 
 ChartJS.register(
   CategoryScale,
@@ -62,30 +63,30 @@ const AdminHome = () => {
     <div className="container mx-auto p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Total Users Card */}
-        <div className="bg-blue-500 text-white p-6 rounded-lg shadow-lg flex justify-between items-center">
+        <Link to='/users' className="bg-blue-500 text-white p-6 rounded-lg shadow-lg flex justify-between items-center">
           <div>
             <h2 className="text-3xl font-bold">Total Users</h2>
-            <p className="text-xl">{users.length}</p>
+            <p className="text-xl">{users?.length}</p>
           </div>
           <div className="bg-blue-700 p-4 rounded-full">
             <svg className="h-12 w-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
             </svg>
           </div>
-        </div>
+        </Link>
 
         {/* Total Products Card */}
-        <div className="bg-green-500 text-white p-6 rounded-lg shadow-lg flex justify-between items-center">
+        <Link to='/products' className="bg-green-500 text-white p-6 rounded-lg shadow-lg flex justify-between items-center">
           <div>
             <h2 className="text-3xl font-bold">Total Products</h2>
-            <p className="text-xl">{products.length}</p>
+            <p className="text-xl">{products?.length}</p>
           </div>
           <div className="bg-green-700 p-4 rounded-full">
             <svg className="h-12 w-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
             </svg>
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* Chart */}
