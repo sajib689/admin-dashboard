@@ -63,7 +63,7 @@ const AdminHome = () => {
     <div className="container mx-auto p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Total Users Card */}
-        <Link to='/users' className="bg-blue-500 text-white p-6 rounded-lg shadow-lg flex justify-between items-center">
+        <Link to='/admin/users' className="bg-blue-500 text-white p-6 rounded-lg shadow-lg flex justify-between items-center">
           <div>
             <h2 className="text-3xl font-bold">Total Users</h2>
             <p className="text-xl">{users?.length}</p>
@@ -76,7 +76,7 @@ const AdminHome = () => {
         </Link>
 
         {/* Total Products Card */}
-        <Link to='/products' className="bg-green-500 text-white p-6 rounded-lg shadow-lg flex justify-between items-center">
+        <Link to='/admin/products' className="bg-green-500 text-white p-6 rounded-lg shadow-lg flex justify-between items-center">
           <div>
             <h2 className="text-3xl font-bold">Total Products</h2>
             <p className="text-xl">{products?.length}</p>
