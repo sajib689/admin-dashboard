@@ -57,7 +57,20 @@ const AddProduct = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
-              reset()
+              setFormData({
+                name: "",
+                color: "",
+                capacity: "",
+                price: "",
+                generation: "",
+                year: "",
+                cpuModel: "",
+                hardDiskSize: "",
+                strapColor: "",
+                caseSize: "",
+                screenSize: "",
+                description: "",
+              });
         }
       })
       .catch((err) => {
