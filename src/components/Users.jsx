@@ -14,7 +14,7 @@ const Users = () => {
       });
   }, []);
 
-  if (loading) return <h1 className="text-center text-xl">Loading...</h1>;
+  if (loading) return <Loader/>
 
   return (
     <div className="container mx-auto p-4">

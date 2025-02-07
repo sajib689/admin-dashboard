@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loader from "../Util/Loader";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -26,7 +27,7 @@ const Products = () => {
       })
       .catch((error) => console.error("Error deleting product:", error));
   }
-  if (loading) return <h1 className="text-center text-xl">Loading...</h1>;
+  if (loading) return <Loader/>
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold text-left mb-6">
