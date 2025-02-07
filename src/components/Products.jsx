@@ -44,6 +44,12 @@ const Products = () => {
                     >
                       View Details
                     </Link>
+                    <Link
+                     
+                      className="bg-gradient-to-r from-green-400 to-teal-500 text-white px-3 py-2 md:px-4 md:py-2 rounded text-sm md:text-base w-full md:w-auto text-center block md:inline-block"
+                    >
+                      Delete
+                    </Link>
                   </td>
                 </tr>
               ))}
