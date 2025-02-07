@@ -17,7 +17,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Main/>,
-    ErrorBoundary:<Error/>,
+    errorElement:<Error/>,
     children: [
       {
         path: '/', 
@@ -32,6 +32,7 @@ const router = createBrowserRouter([
   {
     path: '/admin', 
     element: <PrivateRoute><App /></PrivateRoute>,
+    errorElement:<Error/>,
     children: [
       {
         path: 'adminhome', 
