@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("");
+  const location = useLocation(); // Get current route
 
   return (
     <div className="flex h-screen">
@@ -29,7 +29,7 @@ const Sidebar = () => {
           <Link
             to="/"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
-              activeTab === "home"
+              location.pathname === "/"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
                 : "hover:bg-teal-700"
             }`}
@@ -39,7 +39,7 @@ const Sidebar = () => {
           <Link
             to="/users"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
-              activeTab === "profile"
+              location.pathname === "/users"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
                 : "hover:bg-teal-700"
             }`}
@@ -49,7 +49,7 @@ const Sidebar = () => {
           <Link
             to="/products"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
-              activeTab === "products"
+              location.pathname === "/products"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
                 : "hover:bg-teal-700"
             }`}
@@ -59,7 +59,7 @@ const Sidebar = () => {
           <Link
             to="/payment-history"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
-              activeTab === "payment-history"
+              location.pathname === "/payment-history"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
                 : "hover:bg-teal-700"
             }`}
@@ -69,43 +69,43 @@ const Sidebar = () => {
           <Link
             to="/earnings"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
-              activeTab === "earnings"
+              location.pathname === "/earnings"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
                 : "hover:bg-teal-700"
             }`}
           >
-            🛒 Earnings
+            💰 Earnings
           </Link>
-          <button
-            onClick={() => setActiveTab("settings")}
+          <Link
+            to="/settings"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
-              activeTab === "settings"
+              location.pathname === "/settings"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
                 : "hover:bg-teal-700"
             }`}
           >
             ⚙️ Settings
-          </button>
-          <button
-            onClick={() => setActiveTab("messages")}
+          </Link>
+          <Link
+            to="/messages"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
-              activeTab === "messages"
+              location.pathname === "/messages"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
                 : "hover:bg-teal-700"
             }`}
           >
             ✉️ Messages
-          </button>
-          <button
-            onClick={() => setActiveTab("logout")}
+          </Link>
+          <Link
+            to="/logout"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
-              activeTab === "logout"
+              location.pathname === "/logout"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
                 : "hover:bg-teal-700"
             }`}
           >
             🚪 Logout
-          </button>
+          </Link>
         </nav>
       </aside>
 
@@ -127,7 +127,9 @@ const Sidebar = () => {
             ☰
           </button>
           <div className="relative">
-            <h1 className="md:text-xl font-semibold ms-5 sm:text-[18 px]">Welcome to the Dashboard</h1>
+            <h1 className="md:text-xl font-semibold ms-5 sm:text-[18px]">
+              Welcome to the Dashboard
+            </h1>
           </div>
         </header>
 
