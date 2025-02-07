@@ -5,6 +5,8 @@ import Loader from "../Util/Loader";
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [name, setName] = useState("");
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
