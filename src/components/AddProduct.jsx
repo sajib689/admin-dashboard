@@ -238,7 +238,7 @@ const AddProduct = () => {
           </div>
         </div>
 
-        <button type="submit" className="w-full bg-gradient-to-r from-green-400 to-teal-500 text-white py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition duration-300">
+        <button type="submit" className="cursor-pointer w-full bg-gradient-to-r from-green-400 to-teal-500 text-white py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition duration-300">
           Add Product
         </button>
       </form>
