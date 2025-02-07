@@ -117,10 +117,10 @@ const Products = () => {
               onChange={(e) => setColorFilter(e.target.value)}
             >
               <option value="">Select Color</option>
-              <option value="Red">Red</option>
-              <option value="Brown">Brown</option>
-              <option value="Purple">Purple</option>
-              <option value="Cloudy White">Cloudy White</option>
+              
+              {
+                products?.map(product => <option key={product?.id} value={product?.data?.color}>{product?.data?.color}</option>)
+              }
             </select>
           </div>
         </div>
@@ -136,9 +136,9 @@ const Products = () => {
             onChange={(e) => setCapacityFilter(e.target.value)}
           >
             <option value="">Select Capacity</option>
-            <option value="64 GB">64 GB</option>
-            <option value="254 GB">254 GB</option>
-            <option value="256 GB">256 GB</option>
+            {
+                products?.map(product => <option key={product?.id} value={product?.data?.capacity}>{product?.data?.capacity}</option>)
+              }
           </select>
         </div>
       </div>
