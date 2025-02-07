@@ -11,11 +11,13 @@ import Register from "../Authentication/Register";
 import Main from "../Main/Main";
 import AdminHome from './../components/AdminHone';
 import PrivateRoute from "../Private/PrivateRoute";
+import Error from "../Error/Error";
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Main/>,
+    ErrorBoundary:<Error/>,
     children: [
       {
         path: '/', 
