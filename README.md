@@ -1,21 +1,26 @@
-# Users List with Filtering
+# Admin Dashboard with User and Product Management
 
-This project allows you to view a list of users fetched from an API, with functionality to filter the users by their name and city. It provides a simple user interface with a search bar and a dropdown to filter the users based on the name.
+This project provides an admin dashboard where authenticated users (admins) can manage users and products. The dashboard allows the admin to view user details, add and delete products, and filter users based on their name and city. It also includes a secure login and registration system, where only authenticated users can access the admin dashboard.
 
 ## Features
 
-- **User List**: Displays a list of users fetched from an external API.
-- **Search by City**: Users can search and filter the list based on the city.
-- **Filter by Name**: A dropdown to filter users by their name.
-- **Loader**: Displays a loading spinner while data is being fetched.
-- **Responsive Design**: The application is responsive and adjusts well on different screen sizes.
+- **Login & Registration System**: Admins must log in to access the dashboard. Users can register if they do not have an account.
+- **Admin Dashboard**: Only accessible to authenticated users. Admins can view user and product data.
+  - **User List**: Displays a list of users fetched from an API, showing their name, email, address, etc.
+  - **View User Details**: A button next to each user to view all details about that user.
+  - **Product Management**: Admins can add products, view product details, and delete products.
+  - **User Filtering**: A dropdown to filter users by name, and a search bar to filter by city.
+  - **Loader**: Displays a loading spinner while data is being fetched.
+  - **Logout System**: Admins can log out of the system.
+  - **Private Route**: Ensures that only authenticated admins can access the dashboard.
 
 ## Tech Stack
 
 - **React.js**: Frontend framework for building the user interface.
 - **Tailwind CSS**: For styling the components and layout.
-- **JSONPlaceholder API**: Used as a placeholder for the user data (you can replace it with your own API).
-- **React Router**: For navigation, allowing users to view details of individual users.
+- **JSONPlaceholder API**: Used as a placeholder for the user data (can be replaced with your own API).
+- **React Router**: For navigation and routing, including private routes for the admin dashboard.
+- **Local Storage / JWT**: For managing authentication and securing routes.
 
 ## Setup
 
