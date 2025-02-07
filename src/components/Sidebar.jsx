@@ -127,7 +127,7 @@ const Sidebar = () => {
             ☰
           </button>
           <div className="relative">
-            <h1 className="text-xl font-semibold">Welcome to the Dashboard</h1>
+            <h1 className="md:text-xl font-semibold ms-5 sm:text-[18 px]">Welcome to the Dashboard</h1>
           </div>
         </header>
 
