@@ -1,13 +1,40 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
+    const {register} = useContext(AuthContext)
+    const handleRegistered = e => {
+        e.preventDefault();
+        const form = e.target
+        const name = form.name.value
+        const email = form.email.value
+        const password = form.password.value
+        register(email, password)
+        .then(res => {
+            if(res){
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your work has been saved",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        })
+        .catch(err => {
+            console.error(err);
+        })
+    }
+
   return (
     <div>
       <div className="flex h-screen items-center justify-center bg-gray-100">
         {/* Right Section - Login Form */}
         <div className="w-full lg:w-1/3 bg-white p-8 shadow-lg rounded-lg">
           <h2 className="text-3xl font-bold text-center mb-6">Register</h2>
-          <form className="space-y-4">
+          <form onSubmit={handleRegistered} className="space-y-4">
              {/* Name Input */}
              <div>
               <label
