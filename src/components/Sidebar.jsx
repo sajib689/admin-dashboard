@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthProvider";
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const {logOut} = useContext(AuthContext)
+  const {logOut,user} = useContext(AuthContext)
   const navigate = useNavigate();
   const handleLogout = () => {
     logOut().then(() => {
@@ -136,7 +136,7 @@ const Sidebar = () => {
           </button>
           <div className="relative w-full">
             <h1 className="md:text-xl font-semibold ms-5 sm:text-[18px]">
-              Welcome to the Dashboard
+              Welcome to the Dashboard {user?.email}
             </h1>
           </div>
         </header>

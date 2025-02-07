@@ -80,7 +80,7 @@ const Users = () => {
             >
               <option value="">Select Name</option>
               {
-                users.map((user) => (
+                users?.map((user) => (
                   <option key={user?.id} value={user.name}>
                     {user?.name}
                   </option>
@@ -109,7 +109,7 @@ const Users = () => {
                 <td className="px-6 py-4">{user?.address?.city}</td>
                 <td className="px-6 py-4">
                   <Link
-                    to={`/users/${user?.id}`}
+                    to={`/admin/users/${user?.id}`}
                     className="bg-gradient-to-r from-green-400 to-teal-500 text-white px-3 py-2 md:px-4 md:py-2 rounded text-sm md:text-base w-full md:w-auto text-center block md:inline-block"
                   >
                     <Eye/>

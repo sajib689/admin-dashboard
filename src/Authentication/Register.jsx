@@ -94,7 +94,7 @@ const Register = () => {
                 Already have an account?
               </a>{" "}
               |{" "}
-              <Link to="/auth/login" className="hover:underline text-blue-500">
+              <Link to="/" className="cursor-pointer hover:underline text-blue-500">
                 Login
               </Link>
             </div>
