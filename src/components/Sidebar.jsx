@@ -3,7 +3,7 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation(); // Get current route
+  const location = useLocation();
 
   return (
     <div className="flex h-screen">
@@ -27,9 +27,9 @@ const Sidebar = () => {
         </div>
         <nav className="flex flex-col space-y-4">
           <Link
-            to="/"
+            to="/adminhome"
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
-              location.pathname === "/"
+              location.pathname === "/adminhome"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
                 : "hover:bg-teal-700"
             }`}
@@ -126,7 +126,7 @@ const Sidebar = () => {
           >
             ☰
           </button>
-          <div className="relative">
+          <div className="relative w-full">
             <h1 className="md:text-xl font-semibold ms-5 sm:text-[18px]">
               Welcome to the Dashboard
             </h1>
