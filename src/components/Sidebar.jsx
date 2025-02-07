@@ -1,10 +1,18 @@
-import { useState } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
+  const {logOut} = useContext(AuthContext)
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    logOut()
+    .then(() => {
+      navigate('/auth/login');
+    })
+  }
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
@@ -96,8 +104,8 @@ const Sidebar = () => {
           >
             ✉️ Messages
           </Link>
-          <Link
-            to="/logout"
+          <button
+            onClick={handleLogout}
             className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
               location.pathname === "/logout"
                 ? "bg-gradient-to-r from-teal-500 to-blue-600"
@@ -105,7 +113,7 @@ const Sidebar = () => {
             }`}
           >
             🚪 Logout
-          </Link>
+          </button>
         </nav>
       </aside>
 
