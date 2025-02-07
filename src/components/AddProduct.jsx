@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
   const [formData, setFormData] = useState({
@@ -47,7 +48,17 @@ const AddProduct = () => {
       },
       body: JSON.stringify(productData),
     })
-      .then((res) => console.log(res))
+      .then((res) => {
+        if(res.data) {
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your product has been saved",
+                showConfirmButton: false,
+                timer: 1500
+              });
+        }
+      })
       .catch((err) => console.log(err));
   };
 
