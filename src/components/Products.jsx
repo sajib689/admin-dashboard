@@ -14,6 +14,18 @@ const Products = () => {
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
+
+  const handleDeleteProduct = (id) => {
+    fetch(`https://api.restful-api.dev/objects/${id}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        setProducts((prevProducts) =>
+          prevProducts.filter((product) => product.id !== id)
+        );
+      })
+      .catch((error) => console.error("Error deleting product:", error));
+  }
   if (loading) return <h1 className="text-center text-xl">Loading...</h1>;
   return (
     <div className="container mx-auto p-4">
@@ -47,7 +59,7 @@ const Products = () => {
                   >
                     View Details
                   </Link>
-                  <Link className=" ms-2 bg-gradient-to-r from-red-500 to-red-700 text-white px-3 py-2 md:px-4 md:py-2 rounded text-sm md:text-base w-full md:w-auto text-center block md:inline-block hover:from-red-600 hover:to-red-800">
+                  <Link onClick={() => handleDeleteProduct(product?.id)} className=" ms-2 bg-gradient-to-r from-red-500 to-red-700 text-white px-3 py-2 md:px-4 md:py-2 rounded text-sm md:text-base w-full md:w-auto text-center block md:inline-block hover:from-red-600 hover:to-red-800">
                     Delete
                   </Link>
                 </td>

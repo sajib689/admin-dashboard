@@ -36,7 +36,7 @@ const Users = () => {
               <tr key={user?.id} className="border-t hover:bg-gray-100">
                 <td className="px-6 py-4">{user?.name}</td>
                 <td className="px-6 py-4">{user?.email}</td>
-                <td className="px-6 py-4">{user?.address.city}</td>
+                <td className="px-6 py-4">{user?.address?.city}</td>
                 <td className="px-6 py-4">
                   <Link
                     to={`/users/${user?.id}`}
