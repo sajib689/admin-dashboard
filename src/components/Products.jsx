@@ -49,7 +49,6 @@ const Products = () => {
 
     setFilteredProducts(filtered);
   }, [searchQuery, colorFilter, capacityFilter, products]);
-
   const handleDeleteProduct = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -118,9 +117,9 @@ const Products = () => {
             >
               <option value="">Select Color</option>
               <option value="Red">Red</option>
-              <option value="Blue">Blue</option>
-              <option value="Green">Green</option>
-              <option value="Yellow">Yellow</option>
+              <option value="Brown">Brown</option>
+              <option value="Purple">Purple</option>
+              <option value="Cloudy White">Cloudy White</option>
             </select>
           </div>
         </div>
@@ -136,9 +135,9 @@ const Products = () => {
             onChange={(e) => setCapacityFilter(e.target.value)}
           >
             <option value="">Select Capacity</option>
-            <option value="10">10 GB</option>
-            <option value="20">20 GB</option>
-            <option value="50">50 GB</option>
+            <option value="64 GB">64 GB</option>
+            <option value="254 GB">254 GB</option>
+            <option value="256 GB">256 GB</option>
           </select>
         </div>
       </div>
