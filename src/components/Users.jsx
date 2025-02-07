@@ -16,8 +16,27 @@ const Users = () => {
         setLoading(false);
       });
   }, []);
+  useEffect(() => {
+    let filtered = users;
 
-  if (loading) return <Loader/>
+    // Filter by search query (city)
+    if (searchQuery) {
+      filtered = filtered.filter((user) =>
+        user.address.city.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    // Filter by name
+    if (name) {
+      filtered = filtered.filter((user) =>
+        user.name.toLowerCase().includes(name.toLowerCase())
+      );
+    }
+
+    // Update the filtered users state
+    setUsers(filtered);
+  }, [searchQuery, name, users]);
+  if (loading) return <Loader />;
 
   return (
     <div className="container mx-auto p-4">
