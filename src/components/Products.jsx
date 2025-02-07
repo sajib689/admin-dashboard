@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../Util/Loader";
 import Swal from "sweetalert2";
+import { Eye, Trash } from "lucide-react";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -162,18 +163,18 @@ const Products = () => {
                 <td className="px-6 py-4">
                   {product?.data?.capacity || "Not Available"}
                 </td>
-                <td className="px-6 py-4">
+                <td className="px-4 py-2 flex justify-center items-center">
                   <Link
                     to={`/products/${product?.id}`}
                     className="bg-gradient-to-r from-green-400 to-teal-500 text-white px-3 py-2 md:px-4 md:py-2 rounded text-sm md:text-base w-full md:w-auto text-center block md:inline-block"
                   >
-                    View Details
+                   <Eye/>
                   </Link>
                   <Link
                     onClick={() => handleDeleteProduct(product?.id)}
                     className="ms-2 bg-gradient-to-r from-red-500 to-red-700 text-white px-3 py-2 md:px-4 md:py-2 rounded text-sm md:text-base w-full md:w-auto text-center block md:inline-block hover:from-red-600 hover:to-red-800"
                   >
-                    Delete
+                  <Trash/>
                   </Link>
                 </td>
               </tr>

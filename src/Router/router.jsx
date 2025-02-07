@@ -5,6 +5,7 @@ import Products from "../components/Products";
 import ViewUser from "../components/ViewUser";
 import ViewProduct from "../components/ViewProduct";
 import AddProduct from "../components/AddProduct";
+import AdminHome from "../components/AdminHone";
 
 
 const router = createBrowserRouter([
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
         path: '/',
         element: <App/>,
         children: [
+          {
+            path: 'adminhome',
+            element: <AdminHome/>
+          },
            {
              path: '/users',
              element: <Users/>
