@@ -29,5 +29,44 @@ To run this project locally, follow these steps:
 ### 1. Clone the repository
 
 ```bash
+2. Install Dependencies
+Navigate to the project folder and install the required dependencies using npm:
+
+bash
+Copy
+Edit
+cd admin-dashboard
+npm install
+3. Start the Development Server
+After installing the dependencies, run the development server:
+
+bash
+Copy
+Edit
+npm start
+This will start the development server, and you can view the project at http://localhost:3000.
+
+
+API Integration
+The project uses JSONPlaceholder API as the source of user data. It can be replaced with your own API by modifying the /utils/api.js file. The users are fetched from https://jsonplaceholder.typicode.com/users, and products are fetched from a placeholder (you can replace it with your real products API).
+
+Components
+UserList: Displays the list of users with the ability to filter based on city and name.
+ProductList: Displays a list of products, with the ability to view and delete products.
+Loader: Shows a loading spinner when data is being fetched.
+Login/Register: Components for login and registration forms.
+Filter: Contains the city search bar and name dropdown to filter users.
+Dashboard: Main page for the admin dashboard, showing users and products.
+Authentication
+Login: Admins must log in to access the dashboard. The login form takes a username and password and saves the authenticated user in local storage.
+Private Route: Ensures that only logged-in users (admins) can access the dashboard.
+Styling
+This project uses Tailwind CSS for styling. You can customize the design in tailwind.config.js or in individual components.
+
+Deployment
+You can deploy this project to any platform like Vercel or Netlify by following their documentation.
+
+Contributing
+Feel free to fork the repository and make changes. If you find any bugs or have suggestions, please open an issue or create a pull request.
 git clone https://github.com/sajib689/admin-dashboard.git
 Live Link: https://admin-home.netlify.app/
