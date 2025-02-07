@@ -16,11 +16,11 @@ const Users = () => {
 
   if (loading) return <h1 className="text-center text-xl">Loading...</h1>;
 
-  
-
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold text-center mb-6">Users</h1>
+      <h1 className="text-2xl font-bold text-left mb-6">
+        Total Users: {users?.length}
+      </h1>
       <div className="overflow-x-auto bg-white shadow-md rounded-lg">
         <table className="min-w-full table-auto">
           <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
@@ -39,8 +39,8 @@ const Users = () => {
                 <td className="px-6 py-4">{user.address.city}</td>
                 <td className="px-6 py-4">
                   <Link
-                   to={`/users/${user?.id}`}
-                    className="bg-gradient-to-r from-green-400 to-teal-500 text-white px-4 py-2 rounded hover:bg-gradient-to-l"
+                    to={`/users/${user?.id}`}
+                    className="bg-gradient-to-r from-green-400 to-teal-500 text-white px-3 py-2 md:px-4 md:py-2 rounded text-sm md:text-base w-full md:w-auto text-center block md:inline-block"
                   >
                     View Details
                   </Link>

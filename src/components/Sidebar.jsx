@@ -118,7 +118,7 @@ const Sidebar = () => {
       )}
 
       {/* Main Content */}
-      <main className="flex-1 ml-64 p-6 overflow-y-auto">
+      <main className="flex-1 md:ml-64 lg:ml-64 p-6 overflow-y-auto">
         <header className="flex items-center justify-between p-4 bg-white shadow-md">
           <button
             className="md:hidden text-2xl"
