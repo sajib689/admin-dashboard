@@ -49,7 +49,6 @@ const AddProduct = () => {
       body: JSON.stringify(productData),
     })
       .then((res) => {
-        console.log(res)
         if(res.status === 200) {
             Swal.fire({
                 position: "top-center",
@@ -58,9 +57,16 @@ const AddProduct = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              reset()
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        Swal.fire({
+            icon: "error",
+            title: "Submission Failed",
+            text: `${err.message}`,
+          });
+      });
   };
 
   return (
