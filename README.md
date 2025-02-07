@@ -32,17 +32,13 @@ To run this project locally, follow these steps:
 2. Install Dependencies
 Navigate to the project folder and install the required dependencies using npm:
 
-bash
-Copy
-Edit
+
 cd admin-dashboard
 npm install
 3. Start the Development Server
 After installing the dependencies, run the development server:
 
-bash
-Copy
-Edit
+
 npm start
 This will start the development server, and you can view the project at http://localhost:3000.
 
